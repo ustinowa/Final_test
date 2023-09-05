@@ -1,0 +1,6 @@
+address: https://test-stand.gb.ru
+sleep_time: 1
+browser: chrome
+implicitly_wait: 3
+login: anastasiyaustin3
+password: 68b2712af0
