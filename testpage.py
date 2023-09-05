@@ -65,6 +65,14 @@ class OperationsHelper(BasePage):
         res = requests.post(url=self.d["url_create"], headers=headers, data=data)
         return res.json()["description"]
 
+    def check_auth(self):
+        headers = {
+            "X-Auth-Token": self.auth_site()[1]
+        }
+
+        res = requests.get(url="https://test-stand.gb.ru/api/users/profile/7891", headers=headers)
+        return res.json()["username"]
+
     def checkout(self, cmd, text):
         result = subprocess.run(cmd, shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE, encoding='utf-8')
         if text in result.stdout and result.returncode == 0 or text in result.stderr:
